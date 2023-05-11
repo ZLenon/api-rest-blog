@@ -4,6 +4,7 @@ services:
   # Serviço que irá rodar o node
   node:
     # Faz o build do Dockerfile da pasta atual e utiliza o resultado desse build
+    user: node
     # como a imagem do container
     image: node:16
     # Nome do container para facilitar execução
