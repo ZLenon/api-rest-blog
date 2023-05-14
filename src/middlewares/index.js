@@ -1,7 +1,9 @@
+const { formValid } = require('./formValid');
 const { loginValid } = require('./loginValid');
-const { authToken } = require('./tokenValid');
+const { tokenValid } = require('./tokenValid');
 
 module.exports = {
   loginValid,
-  authToken,
+  tokenValid,
+  formValid,
 };

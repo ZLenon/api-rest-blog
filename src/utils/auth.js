@@ -6,7 +6,7 @@ const configJWT = {
   expiresIn: '100d',
   algorithm: 'HS256',
 };
-// payload = password
+// payload = { password }
 const generateToken = (payload) => {
   const token = jwt.sign(payload, secretKey, configJWT);
   return token;

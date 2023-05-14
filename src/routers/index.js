@@ -3,8 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 const loginRouter = require('./login.route');
-const middlewares = require('../middlewares');
+const userRouter = require('./user.route');
 
-router.use('/login', middlewares.loginValid, loginRouter);// alterar
+router.use('/login', loginRouter);
+router.use('/user', userRouter);
 
 module.exports = router;

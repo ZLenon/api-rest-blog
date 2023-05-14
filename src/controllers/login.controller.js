@@ -1,5 +1,4 @@
 const services = require('../services');
-// const { generateToken } = require('../utils');
 
 const loginAcess = async (request, response) => {  
   const { email, password } = request.body;

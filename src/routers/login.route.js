@@ -4,6 +4,8 @@ const loginRouter = express.Router();
 
 const controllers = require('../controllers');
 
-loginRouter.post('/', controllers.loginAcess);
+const middlewares = require('../middlewares');
+
+loginRouter.post('/', middlewares.loginValid, controllers.loginAcess);
 
 module.exports = loginRouter;
