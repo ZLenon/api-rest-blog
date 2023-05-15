@@ -3,7 +3,6 @@ const { validateToken } = require('../utils/auth');
 const tokenValid = (request, response, next) => {
   const token = request.headers.authorization;
   
-    console.log('authorization', token);
     if (!token) {
       return response.status(401).json({ message: 'Token not found' });
     } 
@@ -14,9 +13,6 @@ const tokenValid = (request, response, next) => {
     } catch (error) {
       return response.status(401).json({ message: 'Expired or invalid token' });
     }
-    /* console.log('retornoToken', retornoToken);
-    if (!retornoToken) {
-    } */
 };
 
 module.exports = {

@@ -23,7 +23,7 @@ const findByUserID = async (request, response) => {
   Number(id);
   const userID = await services.findByUserID(id);
   if (userID.message) {
-    return response.status(200).json(userID);    
+    return response.status(404).json(userID);    
   }
     return response.status(200).json(userID);
 };

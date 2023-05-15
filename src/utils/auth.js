@@ -12,8 +12,11 @@ const generateToken = (payload) => {
   return token;
 };
 // token = super string que é a mistura do password com o jwt
-const validateToken = (token) => jwt.verify(token, secretKey);
-
+const validateToken = (token) => {
+  if (!token) return { message: 'Falta o token' };
+  const isValid = jwt.verify(token, secretKey);
+  return isValid;
+};
 // decodifica a super string em um password
 const decodeToken = (token) => {
   if (!token) return { message: 'Falta o token' };
