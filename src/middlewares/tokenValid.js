@@ -4,7 +4,7 @@ const tokenValid = (request, response, next) => {
   try {
     const { authorization } = request.headers;
     const retornoToken = validateToken(authorization);
-    if (retornoToken === undefined) {
+    if (authorization === undefined) {
       return response.status(401).json({ message: 'Token not found' });
     } if (!retornoToken) {
       return response.status(401).json({ message: 'Expired or invalid token' });

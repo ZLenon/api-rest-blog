@@ -5,8 +5,8 @@ module.exports = {
  */
   up: async (queryInterface, Sequelize) => {   
     await queryInterface.createTable('users', { 
-      id: {
-        allowNull: false,
+      id: { // Esse id é referenciado la na migration blog_post
+        allowNull: false, 
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER

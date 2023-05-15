@@ -1,6 +1,7 @@
 const { User } = require('../models');
 const { generateToken } = require('../utils');
 
+// Requisito 3
 const addNewUser = async (email, password, image, displayName) => {
   const userFind = await User.findOne({
      where: { email },
@@ -16,6 +17,27 @@ const addNewUser = async (email, password, image, displayName) => {
   return token;
 };
 
+// Requisito 5
+const findAllUsers = async () => {
+  const allUsers = await User.findAll({ attributes: { exclude: ['password'] } });  
+  return allUsers;
+};
+
+// Requisito 6
+const findByUserID = async (id) => {
+  const userID = await User.findOne({
+    where: {
+      id,
+    },
+    attributes: { exclude: ['password'] }, // exclui o campo password do resultado
+  });
+  if (!userID) {
+    return { message: 'User does not exist' };
+  }
+  return userID;
+};
 module.exports = {
   addNewUser,
+  findAllUsers,
+  findByUserID,
 };

@@ -1,7 +1,9 @@
 const { loginAcess } = require('./login.controller');
-const { addNewUser } = require('./user.controller');
+const { addNewUser, findAllUsers, findByUserID } = require('./user.controller');
 
 module.exports = {
   loginAcess,
   addNewUser,
+  findAllUsers,
+  findByUserID,
 };

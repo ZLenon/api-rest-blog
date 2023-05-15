@@ -1,7 +1,9 @@
 const { loginAcess } = require('./login.services');
-const { addNewUser } = require('./user.service');
+const { addNewUser, findAllUsers, findByUserID } = require('./user.service');
 
 module.exports = {
   loginAcess,
-  addNewUser,  
+  addNewUser,
+  findAllUsers,
+  findByUserID,
 };

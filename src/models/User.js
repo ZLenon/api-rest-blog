@@ -7,7 +7,7 @@ const User = (sequelize, DataTypes) => {
     // definir todas as colunas do banco de dados
     // juntamente com todas as constraints    
     id: {      
-      allowNull: false,
+      allowNull: false, // indica que a coluna não pode ser nula, ou seja, deve ter um valor
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER

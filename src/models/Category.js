@@ -23,7 +23,7 @@ const Category = (sequelize, DataTypes) => {
       foreignKey: 'category_id',
       as: 'postsCategories'
     })
-  }
+  } 
   // HasOne -> Tem Um
   // belongsTo -> Pertence a
   // hasMany -> Tem muitos

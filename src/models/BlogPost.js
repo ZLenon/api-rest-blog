@@ -12,29 +12,35 @@ const BlogPost = (sequelize, DataTypes) => {
     },
     title: DataTypes.STRING,
     content: DataTypes.STRING,
-    userId: {      
+    userId: {     
+      references: {
+        model: 'Users',
+        key: 'id',
+      },
+      field: 'user_id',// define o nome da coluna que contém a chave estrangeira.
       allowNull: false,
-      primaryKey: true,
+      foreignKey: true,/* indica que esta coluna representa uma chave estrangeira na
+       tabela e é utilizada para criar o relacionamento entre as tabelas */
       type: DataTypes.INTEGER
     },
-    published: DataTypes.DATE,
-    updated: DataTypes.DATE
+    updated: DataTypes.DATE,
+    published: DataTypes.DATE
   },
     {
-      tableName: 'blogPost',
+      tableName: 'blog_post',/* define o nome da tabela no banco de dados. Neste caso, a tabela será chamada de blog_post. */
       underscored: true, 
       timestamps: false 
     });
 
   BlogPost.associate = (model) => {
     BlogPost.belongsTo(model.User, {
-      foreignKey: 'user_id',
-      as: 'users'
+      as: 'users',
+      foreignKey: 'user_id'
     })
-    BlogPost.hasMany(model.PostCategory, {
+  BlogPost.hasMany(model.PostCategory, {
       foreignKey: 'post_id',
       as: 'postCategories'
-    })
+    }) 
   }
   // HasOne -> Tem Um
   // belongsTo -> Pertence a

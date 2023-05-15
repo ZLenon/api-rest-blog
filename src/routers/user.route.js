@@ -6,6 +6,8 @@ const controllers = require('../controllers');
 
 const middlewares = require('../middlewares');
 
-userRouter.post('/', middlewares.tokenValid, middlewares.formValid, controllers.addNewUser);
+userRouter.get('/', middlewares.tokenValid, controllers.findAllUsers);// Requisito 5 
+userRouter.get('/:id', middlewares.tokenValid, controllers.findByUserID);// Requisito 6 
+userRouter.post('/', middlewares.tokenValid, middlewares.formValid, controllers.addNewUser);// Requisito 3
 
 module.exports = userRouter;
