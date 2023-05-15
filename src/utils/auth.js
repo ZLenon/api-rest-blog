@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const secretKey = process.env.JWT_SECRET;
+const secretKey = process.env.JWT_SECRET || 'secretJWT';
 
 const configJWT = {
   expiresIn: '100d',
@@ -12,11 +12,8 @@ const generateToken = (payload) => {
   return token;
 };
 // token = super string que é a mistura do password com o jwt
-const validateToken = (token) => {
-  if (!token) return { message: 'Falta o token' };
-  const isValid = jwt.verify(token, secretKey);
-  return isValid;
-};
+const validateToken = (token) => jwt.verify(token, secretKey);
+
 // decodifica a super string em um password
 const decodeToken = (token) => {
   if (!token) return { message: 'Falta o token' };
