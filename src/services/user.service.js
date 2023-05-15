@@ -1,7 +1,7 @@
 const { User } = require('../models');
 const { generateToken } = require('../utils');
 
-// Requisito 3
+// Requisito 4
 const addNewUser = async (email, password, image, displayName) => {
   const userFind = await User.findOne({
      where: { email },

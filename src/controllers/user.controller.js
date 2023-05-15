@@ -1,6 +1,6 @@
 const services = require('../services');
 
-// Requisito 3
+// Requisito 4
 const addNewUser = async (request, response) => {
   const { email, password, image, displayName } = request.body;
   const token = await services.addNewUser(email, password, image, displayName);
