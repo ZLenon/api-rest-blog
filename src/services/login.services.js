@@ -1,7 +1,7 @@
 const { User } = require('../models');
 const { generateToken } = require('../utils');
 
-// Requisito 2
+// Requisito 3
 const loginAcess = async (email, password) => {
   const users = await User.findAll({
     where: {

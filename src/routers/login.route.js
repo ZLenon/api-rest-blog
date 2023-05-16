@@ -6,6 +6,6 @@ const controllers = require('../controllers');
 
 const middlewares = require('../middlewares');
 
-loginRouter.post('/', middlewares.loginValid, controllers.loginAcess);
+loginRouter.post('/', middlewares.loginValid, controllers.loginAcess);// Requisito 3
 
 module.exports = loginRouter;

@@ -6,6 +6,7 @@ const controllers = require('../controllers');
 
 const middlewares = require('../middlewares');
 
+categoriesRouter.get('/', middlewares.tokenValid, controllers.findAllCategories);// Requisito 9
 categoriesRouter.post(
 '/', 
 middlewares.tokenValid,

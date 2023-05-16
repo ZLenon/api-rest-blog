@@ -1,4 +1,4 @@
-const { categoriesCreation } = require('./categories.controller');
+const { categoriesCreation, findAllCategories } = require('./categories.controller');
 const { loginAcess } = require('./login.controller');
 const { addNewUser, findAllUsers, findByUserID } = require('./user.controller');
 
@@ -8,4 +8,5 @@ module.exports = {
   findAllUsers,
   findByUserID,
   categoriesCreation,
+  findAllCategories,
 };
