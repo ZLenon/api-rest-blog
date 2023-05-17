@@ -20,7 +20,7 @@ const Category = (sequelize, DataTypes) => {
 
   Category.associate = (model) => {
     Category.hasOne(model.PostCategory, {
-      foreignKey: 'category_id',
+      foreignKey: 'categoryId',
       as: 'postsCategories'
     })
   } 

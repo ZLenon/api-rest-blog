@@ -32,12 +32,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       published: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       },
       updated: {
-        type: Sequelize.DATE
-      },
-     });     
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
+      },      
+     }, { timestamps: false });     
   },
   down: async (queryInterface, Sequelize) => {  
     await queryInterface.dropTable('blog_posts');     

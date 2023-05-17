@@ -12,22 +12,18 @@ const BlogPost = (sequelize, DataTypes) => {
     },
     title: DataTypes.STRING,
     content: DataTypes.STRING,
-    userId: {     
-      references: {
-        model: 'Users',
-        key: 'id',
-      },
-      field: 'user_id',// define o nome da coluna que contém a chave estrangeira.
-      allowNull: false,
-      foreignKey: true,/* indica que esta coluna representa uma chave estrangeira na
-       tabela e é utilizada para criar o relacionamento entre as tabelas */
-      type: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,  
+    updated: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
     },
-    updated: DataTypes.DATE,
-    published: DataTypes.DATE
+    published: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
   },
     {
-      tableName: 'blog_post',/* define o nome da tabela no banco de dados. Neste caso, a tabela será chamada de blog_post. */
+      tableName: 'blog_posts',/* define o nome da tabela no banco de dados. Neste caso, a tabela será chamada de blog_post. */
       underscored: true, 
       timestamps: false 
     });
@@ -35,11 +31,11 @@ const BlogPost = (sequelize, DataTypes) => {
   BlogPost.associate = (model) => {
     BlogPost.belongsTo(model.User, {
       as: 'users',
-      foreignKey: 'user_id'
+      foreignKey: 'userId'
     })
   BlogPost.hasMany(model.PostCategory, {
-      foreignKey: 'post_id',
-      as: 'postCategories'
+      as: 'postCategories',
+      foreignKey: 'postId'
     }) 
   }
   // HasOne -> Tem Um
@@ -50,3 +46,15 @@ const BlogPost = (sequelize, DataTypes) => {
 };
 
 module.exports = BlogPost;
+
+
+
+      /*  
+       references: {
+        model: 'Users',
+        key: 'id',
+      }, 
+      field: 'user_id',// define o nome da coluna que contém a chave estrangeira.
+      allowNull: false,
+      foreignKey: true,/* indica que esta coluna representa uma chave estrangeira na
+       tabela e é utilizada para criar o relacionamento entre as tabelas */
